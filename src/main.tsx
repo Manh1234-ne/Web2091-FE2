@@ -4,11 +4,13 @@ import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import App from "./App";
 import "antd/dist/reset.css";
+import Lab2 from "./pages/Lab2";
+// import Lab1 from "./pages/Lab1";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>
-      <App />
+      <Lab2 />
     </BrowserRouter>
   </StrictMode>
 );
