@@ -1,4 +1,159 @@
 {
+  "stories": [
+    {
+      "id": 1
+    },
+    {
+      "id": 2
+    },
+    {
+      "id": 3
+    },
+    {
+      "title": "ten truyen",
+      "id": 4
+    },
+    {
+      "title": "ten truyen",
+      "id": 5
+    },
+    {
+      "title": "ten truyen",
+      "id": 6
+    },
+    {
+      "id": 7
+    },
+    {
+      "id": 8
+    },
+    {
+      "title": "ten truyen",
+      "id": 9
+    },
+    {
+      "title": "ten truyen",
+      "id": 10
+    },
+    {
+      "title": "ten truyen",
+      "id": 11
+    },
+    {
+      "title": "ten truyen",
+      "id": 12
+    },
+    {
+      "title": "ten truyen",
+      "id": 13
+    },
+    {
+      "title": "ten truyen",
+      "id": 14
+    },
+    {
+      "title": "ten truyen",
+      "id": 15
+    },
+    {
+      "title": "ten truyen",
+      "id": 16
+    },
+    {
+      "title": "ten truyen",
+      "id": 17
+    },
+    {
+      "title": "ten truyen",
+      "id": 18
+    },
+    {
+      "title": "ten truyen",
+      "id": 19
+    },
+    {
+      "title": "ten truyen",
+      "id": 20
+    },
+    {
+      "title": "ten truyen",
+      "id": 21
+    },
+    {
+      "title": "123213",
+      "author": "1312",
+      "image": "https://th.bing.com/th/id/OIP.rQihb0To_iF4XQzCMWFergHaFo?w=240&h=183&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3",
+      "description": "123",
+      "id": 22
+    },
+    {
+      "title": "123213",
+      "author": "1312",
+      "image": "https://th.bing.com/th/id/OIP.rQihb0To_iF4XQzCMWFergHaFo?w=240&h=183&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3",
+      "description": "123",
+      "id": 23
+    },
+    {
+      "title": "123213",
+      "author": "1312",
+      "image": "https://th.bing.com/th/id/OIP.rQihb0To_iF4XQzCMWFergHaFo?w=240&h=183&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3",
+      "description": "123",
+      "id": 24
+    },
+    {
+      "name": "abc",
+      "author": "1312",
+      "image": "https://th.bing.com/th/id/OIP.rQihb0To_iF4XQzCMWFergHaFo?w=240&h=183&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3",
+      "description": "123",
+      "id": 25
+    },
+    {
+      "name": "abc",
+      "author": "1312",
+      "image": "https://th.bing.com/th/id/OIP.rQihb0To_iF4XQzCMWFergHaFo?w=240&h=183&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3",
+      "description": "123",
+      "id": 26
+    },
+    {
+      "id": 27
+    },
+    {
+      "name": "abc",
+      "author": "Nguyễn Văn C",
+      "image": "https://th.bing.com/th/id/OIP.kCGFv3O6zFIHC5iJjXC0rQHaEn?w=280&h=180&c=7&r=0&o=7&cb=ucfimg2&dpr=1.3&pid=1.7&rm=3&ucfimg=1",
+      "description": "123",
+      "categoryId": 2,
+      "id": 28
+    },
+    {
+      "name": "abc",
+      "author": "Nguyễn Văn C",
+      "image": "https://th.bing.com/th/id/OIP.kCGFv3O6zFIHC5iJjXC0rQHaEn?w=280&h=180&c=7&r=0&o=7&cb=ucfimg2&dpr=1.3&pid=1.7&rm=3&ucfimg=1",
+      "description": "12",
+      "categoryId": 3,
+      "id": 29
+    }
+  ],
   "products": [],
-  "users": []
+  "users": [],
+  "categories": [
+    {
+      "title": "12323",
+      "description": "12",
+      "active": true,
+      "id": 1
+    },
+    {
+      "title": "truyen hay",
+      "description": "1312",
+      "active": true,
+      "id": 2
+    },
+    {
+      "title": "truyen hay ho",
+      "description": "123",
+      "active": true,
+      "id": 3
+    }
+  ]
 }

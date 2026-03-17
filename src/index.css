@@ -1,1 +1,19 @@
 @import "tailwindcss";
+
+/* Layout for Lab4: two-column forms side-by-side */
+.lab4-forms {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.lab4-col {
+    flex: 1 1 0;
+    max-width: 48%;
+}
+
+.lab4-col form {
+    width: 100%;
+}
