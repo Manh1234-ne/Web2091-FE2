@@ -6,14 +6,14 @@ import { useMemo } from "react";
 
 interface Category {
     id?: number;
-    title: string;
+    name: string;
     description?: string;
     active: boolean;
 }
 
 interface Story {
     id?: number;
-    name: string;
+    title: string;
     author?: string;
     image?: string;
     description?: string;
@@ -39,8 +39,8 @@ function CategoryForm() {
 
     return (
         <Form layout="vertical" onFinish={onFinish} style={{ maxWidth: 600 }}>
-            <Form.Item label="Title" name="title" rules={[{ required: true, message: 'Please enter a title' }]}>
-                <Input placeholder="Title" />
+            <Form.Item label="name" name="name" rules={[{ required: true, message: 'Please enter a title' }]}>
+                <Input placeholder="name" />
             </Form.Item>
             <Form.Item label="Description" name="description">
                 <Input.TextArea rows={4} />
@@ -66,7 +66,7 @@ export default function Lab4() {
     })
 
     const categoryOptions = useMemo(() => {
-        return (categories || []).map((c: Category) => ({ label: c.title, value: c.id }));
+        return (categories || []).map((c: Category) => ({ label: c.name, value: c.id }));
     }, [categories]);
 
     const { mutate, isPending, isSuccess } = useMutation({
@@ -95,8 +95,8 @@ export default function Lab4() {
             <div className="lab4-col">
                 <h3>Create Story</h3>
                 <Form layout="vertical" onFinish={onFinish} style={{ maxWidth: '100%' }}>
-                    <Form.Item label="Name" name="name" rules={[{ required: true, message: 'Please enter a name' }]}>
-                        <Input placeholder="name" />
+                    <Form.Item label="title" name="title" rules={[{ required: true, message: 'Please enter a title' }]}>
+                        <Input placeholder="title" />
                     </Form.Item>
                     <Form.Item label="Tác giả" name="author">
                         <Input />

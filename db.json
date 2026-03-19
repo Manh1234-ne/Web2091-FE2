@@ -1,137 +1,68 @@
 {
   "stories": [
     {
-      "id": 1
+      "id": 1,
+      "title": "Doraemon",
+      "author": "Fujiko F. Fujio",
+      "image": "https://picsum.photos/200?random=1",
+      "createdAt": "2024-01-01"
     },
     {
-      "id": 2
+      "id": 2,
+      "title": "One Piece",
+      "author": "Eiichiro Oda",
+      "image": "https://picsum.photos/200?random=2",
+      "createdAt": "2024-02-10"
     },
     {
-      "id": 3
+      "id": 3,
+      "title": "Naruto",
+      "author": "Masashi Kishimoto",
+      "image": "https://picsum.photos/200?random=3",
+      "createdAt": "2024-03-15"
     },
     {
-      "title": "ten truyen",
-      "id": 4
+      "id": 4,
+      "title": "Dragon Ball",
+      "author": "Akira Toriyama",
+      "image": "https://picsum.photos/200?random=4",
+      "createdAt": "2024-04-20"
     },
     {
-      "title": "ten truyen",
-      "id": 5
+      "id": 5,
+      "title": "Attack on Titan",
+      "author": "Hajime Isayama",
+      "image": "https://picsum.photos/200?random=5",
+      "createdAt": "2024-05-01"
     },
     {
-      "title": "ten truyen",
-      "id": 6
+      "id": 6,
+      "title": "Death Note",
+      "author": "Tsugumi Ohba",
+      "image": "https://picsum.photos/200?random=6",
+      "createdAt": "2024-06-12"
     },
     {
-      "id": 7
+      "id": 7,
+      "title": "Jujutsu Kaisen",
+      "author": "Gege Akutami",
+      "image": "https://picsum.photos/200?random=7",
+      "createdAt": "2024-07-05"
     },
     {
-      "id": 8
+      "id": 8,
+      "title": "Tokyo Revengers",
+      "author": "Ken Wakui",
+      "image": "https://picsum.photos/200?random=8",
+      "createdAt": "2024-08-18"
     },
     {
-      "title": "ten truyen",
-      "id": 9
-    },
-    {
-      "title": "ten truyen",
-      "id": 10
-    },
-    {
-      "title": "ten truyen",
-      "id": 11
-    },
-    {
-      "title": "ten truyen",
-      "id": 12
-    },
-    {
-      "title": "ten truyen",
-      "id": 13
-    },
-    {
-      "title": "ten truyen",
-      "id": 14
-    },
-    {
-      "title": "ten truyen",
-      "id": 15
-    },
-    {
-      "title": "ten truyen",
-      "id": 16
-    },
-    {
-      "title": "ten truyen",
-      "id": 17
-    },
-    {
-      "title": "ten truyen",
-      "id": 18
-    },
-    {
-      "title": "ten truyen",
-      "id": 19
-    },
-    {
-      "title": "ten truyen",
-      "id": 20
-    },
-    {
-      "title": "ten truyen",
-      "id": 21
-    },
-    {
-      "title": "123213",
-      "author": "1312",
-      "image": "https://th.bing.com/th/id/OIP.rQihb0To_iF4XQzCMWFergHaFo?w=240&h=183&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3",
-      "description": "123",
-      "id": 22
-    },
-    {
-      "title": "123213",
-      "author": "1312",
-      "image": "https://th.bing.com/th/id/OIP.rQihb0To_iF4XQzCMWFergHaFo?w=240&h=183&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3",
-      "description": "123",
-      "id": 23
-    },
-    {
-      "title": "123213",
-      "author": "1312",
-      "image": "https://th.bing.com/th/id/OIP.rQihb0To_iF4XQzCMWFergHaFo?w=240&h=183&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3",
-      "description": "123",
-      "id": 24
-    },
-    {
-      "name": "abc",
-      "author": "1312",
-      "image": "https://th.bing.com/th/id/OIP.rQihb0To_iF4XQzCMWFergHaFo?w=240&h=183&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3",
-      "description": "123",
-      "id": 25
-    },
-    {
-      "name": "abc",
-      "author": "1312",
-      "image": "https://th.bing.com/th/id/OIP.rQihb0To_iF4XQzCMWFergHaFo?w=240&h=183&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3",
-      "description": "123",
-      "id": 26
-    },
-    {
-      "id": 27
-    },
-    {
-      "name": "abc",
-      "author": "Nguyễn Văn C",
-      "image": "https://th.bing.com/th/id/OIP.kCGFv3O6zFIHC5iJjXC0rQHaEn?w=280&h=180&c=7&r=0&o=7&cb=ucfimg2&dpr=1.3&pid=1.7&rm=3&ucfimg=1",
-      "description": "123",
+      "title": "Truyen moi me",
+      "author": "ABC123",
+      "image": "https://th.bing.com/th/id/OIP.ijuukuotTiDs28swgAoYugHaE8?w=280&h=187&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3",
+      "description": "truyen moi me",
       "categoryId": 2,
-      "id": 28
-    },
-    {
-      "name": "abc",
-      "author": "Nguyễn Văn C",
-      "image": "https://th.bing.com/th/id/OIP.kCGFv3O6zFIHC5iJjXC0rQHaEn?w=280&h=180&c=7&r=0&o=7&cb=ucfimg2&dpr=1.3&pid=1.7&rm=3&ucfimg=1",
-      "description": "12",
-      "categoryId": 3,
-      "id": 29
+      "id": 9
     }
   ],
   "products": [],
