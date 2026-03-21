@@ -18,7 +18,7 @@ createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>
       <QueryClientProvider client={queryClient}>
-        <Lab5 />
+        <App />
       </QueryClientProvider>
     </BrowserRouter>
   </StrictMode>

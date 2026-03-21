@@ -1,8 +1,10 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { Button, Image, Popconfirm, Table } from "antd";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function Lab5() {
+    const navigate = useNavigate();
     const { data, isLoading } = useQuery({
         queryKey: ["stories"],
         queryFn: async () => {
@@ -46,15 +48,19 @@ export default function Lab5() {
         {
             title: "Action",
             render: (_: any, record: any) => (
-                <Popconfirm
-                    title="Delete the story"
-                    description="Bạn chắc chắn muốn xóa nó Ư?"
-                    okText="Yes"
-                    cancelText="No"
-                    onConfirm={() => mutate(record.id)}
-                >
-                    <Button danger>Delete</Button>
-                </Popconfirm>
+                <>
+                    <Popconfirm
+                        title="Delete the story"
+                        description="Bạn chắc chắn muốn xóa nó Ư?"
+                        okText="Yes"
+                        cancelText="No"
+                        onConfirm={() => mutate(record.id)}
+                    >
+                        <Button danger>Delete</Button>
+                    </Popconfirm>
+                    <Button onClick={() => navigate(`/Lab6/${record.id}`)} className="primary">Edit</Button>
+                </>
+
             ),
         },
     ];

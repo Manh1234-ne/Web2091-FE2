@@ -1,7 +1,9 @@
 import { Toaster } from "react-hot-toast";
-import { Link } from "react-router-dom";
+import { Link, Route, Routes } from "react-router-dom";
 import { Layout, Form, Input, Button, Table, Modal } from "antd";
 import { useState } from "react";
+import EditStory from "./pages/Lab6";
+import Lab5 from "./pages/Lab5";
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -40,7 +42,7 @@ function App() {
       name: "Tran Van B",
       email: "b@gmail.com",
       role: "User",
-    },  
+    },
   ];
 
   return (
@@ -74,23 +76,29 @@ function App() {
         </div>
       </nav>
 
+
       {/* MAIN CONTENT */}
       <div className="max-w-6xl mx-auto mt-10 px-4 text-center">
         <h1 className="text-4xl font-bold mb-4">Chào mừng đến với WEB2091</h1>
 
         <Layout style={{ minHeight: "500px" }}>
-          
+
           <Sider style={{ color: "white", padding: 20 }}>
             Sidebar
           </Sider>
 
           <Layout>
             <Header style={{ color: "white" }}>Header</Header>
+            <Routes>
+              <Route path="/edit/:id" element={< EditStory />}></Route>
+              <Route path="/Lab5" element={< Lab5 />}></Route>
+              <Route path="/Lab6/:id" element={<EditStory />} />
+            </Routes>
 
-            <Content style={{ padding: 20 }}>
+            {/* <Content style={{ padding: 20 }}>
 
               {/* Bài 2: Form đăng ký */}
-              <Form onFinish={onFinish} layout="vertical">
+              {/* <Form onFinish={onFinish} layout="vertical">
                 <Form.Item label="Name" name="name">
                   <Input placeholder="Name" />
                 </Form.Item>
@@ -110,20 +118,20 @@ function App() {
                 </Form.Item>
               </Form>
 
-              <br />
+              <br /> */}
 
-              {/* Bài 4: Button mở modal */}
+              {/* Bài 4: Button mở modal
               <Button type="primary" onClick={() => setOpen(true)}>
                 Add User
               </Button>
 
-              <br /><br />
+              <br /><br /> */}
 
               {/* Bài 3: Bảng user */}
-              <Table columns={columns} dataSource={data} />
+              {/* <Table columns={columns} dataSource={data} /> */}
 
               {/* Modal thêm user */}
-              <Modal
+              {/* <Modal
                 title="Add User"
                 open={open}
                 onCancel={() => setOpen(false)}
@@ -136,9 +144,9 @@ function App() {
                 <Button type="primary">
                   Add
                 </Button>
-              </Modal>
+              </Modal> */}
 
-            </Content>
+            {/* </Content> */}
 
             <Footer>Footer</Footer>
           </Layout>
