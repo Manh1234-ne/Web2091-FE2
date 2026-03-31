@@ -37,7 +37,7 @@ export default function EditStory() {
         onSuccess: () => {
             // reload list
             queryClient.invalidateQueries({ queryKey: ["stories"] });
-            
+
 
             // thong bao
             toast.success("ĐÃ SỬA OKÊ")

@@ -1,50 +1,23 @@
 import { Toaster } from "react-hot-toast";
-import { Link, Route, Routes } from "react-router-dom";
-import { Layout, Form, Input, Button, Table, Modal } from "antd";
-import { useState } from "react";
-import EditStory from "./pages/Lab6";
-import Lab5 from "./pages/Lab5";
-
-const { Header, Content, Footer, Sider } = Layout;
+import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { UserContext } from "./context/UserContext";
+import { ThemeContext } from "./context/ThemeContext";
+import { Avatar, Button, Switch } from "antd";
 
 function App() {
-  const [open, setOpen] = useState(false);
+  const context = useContext(UserContext);
 
-  const onFinish = (values: any) => {
-    console.log("onFinish");
-    console.log(values);
+  if (!context) return null;
+  const { user, setUser } = context;
+
+  const handleLogin = () => {
+    setUser({ name: "John Doe", avatar: "https://th.bing.com/th/id/OIP.17L2k7Coosk4SrxO-mqEnwHaHY?w=158&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" });
   };
 
-  const columns = [
-    {
-      title: "Name",
-      dataIndex: "name",
-    },
-    {
-      title: "Email",
-      dataIndex: "email",
-    },
-    {
-      title: "Role",
-      dataIndex: "role",
-    },
-  ];
-
-  const data = [
-    {
-      key: 1,
-      name: "Nguyen Van A",
-      email: "a@gmail.com",
-      role: "Admin",
-    },
-    {
-      key: 2,
-      name: "Tran Van B",
-      email: "b@gmail.com",
-      role: "User",
-    },
-  ];
-
+  const handleLogout = () => setUser(null);
+  const theme = useContext(ThemeContext);
+  const onToggleTheme = () => theme?.toggle();
   return (
     <>
       <nav className="bg-blue-600 text-white shadow">
@@ -66,92 +39,37 @@ function App() {
           </div>
 
           <div className="hidden md:flex items-center space-x-6">
-            <Link to="#" className="hover:text-gray-200">
-              Đăng nhập
-            </Link>
-            <Link to="#" className="hover:text-gray-200">
-              Đăng ký
-            </Link>
+            <div className="flex items-center space-x-3">
+              {user ? (
+                <>
+                  <Avatar src={user.avatar} />
+                  <span>Username: {user.name}</span>
+                </>
+              ) : (
+                <span>chưa đăng nhập</span>
+              )}
+            </div>
+
+            <div className="flex items-center space-x-2">
+              <Button type="primary" onClick={handleLogin}>
+                Login
+              </Button>
+              <Button onClick={handleLogout}>Logout</Button>
+
+
+
+              <div className="flex items-center ml-2 space-x-2">
+                <span className="text-sm text-white">{theme?.mode === "dark" ? "" : ""}</span>
+                <Switch checked={theme?.mode === "dark"} onChange={onToggleTheme} />
+              </div>
+            </div>
           </div>
         </div>
       </nav>
 
-
       {/* MAIN CONTENT */}
       <div className="max-w-6xl mx-auto mt-10 px-4 text-center">
         <h1 className="text-4xl font-bold mb-4">Chào mừng đến với WEB2091</h1>
-
-        <Layout style={{ minHeight: "500px" }}>
-
-          <Sider style={{ color: "white", padding: 20 }}>
-            Sidebar
-          </Sider>
-
-          <Layout>
-            <Header style={{ color: "white" }}>Header</Header>
-            <Routes>
-              <Route path="/edit/:id" element={< EditStory />}></Route>
-              <Route path="/Lab5" element={< Lab5 />}></Route>
-              <Route path="/Lab6/:id" element={<EditStory />} />
-            </Routes>
-
-            {/* <Content style={{ padding: 20 }}>
-
-              {/* Bài 2: Form đăng ký */}
-              {/* <Form onFinish={onFinish} layout="vertical">
-                <Form.Item label="Name" name="name">
-                  <Input placeholder="Name" />
-                </Form.Item>
-
-                <Form.Item label="Email" name="email">
-                  <Input placeholder="Email" />
-                </Form.Item>
-
-                <Form.Item label="Password" name="password">
-                  <Input.Password placeholder="Password" />
-                </Form.Item>
-
-                <Form.Item>
-                  <Button htmlType="submit" type="primary">
-                    Submit
-                  </Button>
-                </Form.Item>
-              </Form>
-
-              <br /> */}
-
-              {/* Bài 4: Button mở modal
-              <Button type="primary" onClick={() => setOpen(true)}>
-                Add User
-              </Button>
-
-              <br /><br /> */}
-
-              {/* Bài 3: Bảng user */}
-              {/* <Table columns={columns} dataSource={data} /> */}
-
-              {/* Modal thêm user */}
-              {/* <Modal
-                title="Add User"
-                open={open}
-                onCancel={() => setOpen(false)}
-                footer={null}
-              >
-                <Input placeholder="Name" style={{ marginBottom: 10 }} />
-                <Input placeholder="Email" style={{ marginBottom: 10 }} />
-                <Input placeholder="Role" style={{ marginBottom: 10 }} />
-
-                <Button type="primary">
-                  Add
-                </Button>
-              </Modal> */}
-
-            {/* </Content> */}
-
-            <Footer>Footer</Footer>
-          </Layout>
-
-        </Layout>
       </div>
 
       <Toaster />
