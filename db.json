@@ -59,7 +59,20 @@
     }
   ],
   "products": [],
-  "users": [],
+  "users": [
+    {
+      "email": "hello2@gmail.com",
+      "password": "$2a$10$P2RhUv4p5KDt85kJL28jgesB5rJX7QIBJU5nyKqObKFy7MjQV47MC",
+      "username": "manhmo",
+      "id": 1
+    },
+    {
+      "email": "manhnon16@gmail.com",
+      "password": "$2a$10$09SIIKA4//Upp4kCxHaMv.pcpwVIGajBDqJ0J63u8vRnFZy1UUQdi",
+      "username": "manhmo",
+      "id": 2
+    }
+  ],
   "categories": [
     {
       "title": "12323",

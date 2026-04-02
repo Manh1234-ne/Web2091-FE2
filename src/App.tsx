@@ -1,21 +1,17 @@
 import { Toaster } from "react-hot-toast";
-import { Link } from "react-router-dom";
+import { Link, Routes, Route } from "react-router-dom";
 import { useContext } from "react";
-import { UserContext } from "./context/UserContext";
 import { ThemeContext } from "./context/ThemeContext";
 import { Avatar, Button, Switch } from "antd";
+import { useAuthStore } from "./stores/useAuthStore";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 
 function App() {
-  const context = useContext(UserContext);
+  const user = useAuthStore((s) => s.user);
+  const clearUser = useAuthStore((s) => s.clearUser);
 
-  if (!context) return null;
-  const { user, setUser } = context;
-
-  const handleLogin = () => {
-    setUser({ name: "John Doe", avatar: "https://th.bing.com/th/id/OIP.17L2k7Coosk4SrxO-mqEnwHaHY?w=158&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" });
-  };
-
-  const handleLogout = () => setUser(null);
+  const handleLogout = () => clearUser();
   const theme = useContext(ThemeContext);
   const onToggleTheme = () => theme?.toggle();
   return (
@@ -42,19 +38,29 @@ function App() {
             <div className="flex items-center space-x-3">
               {user ? (
                 <>
-                  <Avatar src={user.avatar} />
-                  <span>Username: {user.name}</span>
+                  <Avatar src={(user as any).avatar} />
+                  <div className="flex flex-col text-left">
+                    <span>Email: {(user as any).email || (user as any).username || ""}</span>
+                    <span className="text-sm">Đã đăng nhập</span>
+                  </div>
                 </>
               ) : (
-                <span>chưa đăng nhập</span>
+                <span>Chưa đăng nhập</span>
               )}
             </div>
 
             <div className="flex items-center space-x-2">
-              <Button type="primary" onClick={handleLogin}>
-                Login
-              </Button>
-              <Button onClick={handleLogout}>Logout</Button>
+              {!user && (
+                <Link to="/login">
+                  <Button type="primary">Login</Button>
+                </Link>
+              )}
+              {!user && (
+                <Link to="/register">
+                  <Button>Register</Button>
+                </Link>
+              )}
+              {user && <Button onClick={handleLogout}>Logout</Button>}
 
 
 
@@ -71,6 +77,11 @@ function App() {
       <div className="max-w-6xl mx-auto mt-10 px-4 text-center">
         <h1 className="text-4xl font-bold mb-4">Chào mừng đến với WEB2091</h1>
       </div>
+
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </Routes>
 
       <Toaster />
     </>
