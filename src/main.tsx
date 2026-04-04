@@ -23,7 +23,7 @@ createRoot(document.getElementById("root")!).render(
       <QueryClientProvider client={queryClient}>
         <ThemeProvider>
           <UserProvider>
-            <App />
+            <Lab5 />
           </UserProvider>
         </ThemeProvider>
       </QueryClientProvider>

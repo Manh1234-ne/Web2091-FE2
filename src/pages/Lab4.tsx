@@ -1,125 +1,36 @@
-import { useMutation, useQuery } from "@tanstack/react-query";
-import { Button, Form, Input, Checkbox, Select } from "antd";
-import axios from 'axios'
-import toast from "react-hot-toast";
-import { useMemo } from "react";
+import { Form, Input, Button } from "antd";
+import { useAddStory } from "../hooks/useAddStory";
 
-interface Category {
-    id?: number;
-    name: string;
-    description?: string;
-    active: boolean;
-}
+const AddStory = () => {
+  const { mutate, isPending } = useAddStory();
 
-interface Story {
-    id?: number;
-    title: string;
-    author?: string;
-    image?: string;
-    description?: string;
-    categoryId?: number | string;
-}
+  const onFinish = (values: any) => {
+    mutate(values);
+  };
 
-function CategoryForm() {
-    const { mutate, isPending, isSuccess } = useMutation({
-        mutationFn: async (values: Category) => {
-            await axios.post("http://localhost:3000/categories", values);
-        },
-        onSuccess: () => {
-            toast.success("Category created successfully!");
-        },
-        onError: () => {
-            toast.error("Failed to create category.");
-        },
-    })
+  return (
+    <Form onFinish={onFinish}>
+      <Form.Item name="title">
+        <Input placeholder="Tên truyện" />
+      </Form.Item>
+      <Form.Item name="author">
+        <Input placeholder="Tác giả" />
+      </Form.Item>
+      <Form.Item name="image">
+        <Input placeholder="Ảnh" />
+      </Form.Item>
+      <Form.Item name="description">
+        <Input />
+      </Form.Item>
+      <Form.Item name="createdAt">
+        <Input />
+      </Form.Item>
 
-    const onFinish = (values: Category) => {
-        mutate(values)
-    }
+      <Button htmlType="submit" loading={isPending}>
+        Thêm
+      </Button>
+    </Form>
+  );
+};
 
-    return (
-        <Form layout="vertical" onFinish={onFinish} style={{ maxWidth: 600 }}>
-            <Form.Item label="name" name="name" rules={[{ required: true, message: 'Please enter a title' }]}>
-                <Input placeholder="name" />
-            </Form.Item>
-            <Form.Item label="Description" name="description">
-                <Input.TextArea rows={4} />
-            </Form.Item>
-            <Form.Item name="active" valuePropName="checked">
-                <Checkbox>Active</Checkbox>
-            </Form.Item>
-            <Button htmlType="submit" loading={isPending}>Create Category</Button>
-            {isSuccess && (
-                <div style={{ color: "green" }}>Category created successfully</div>
-            )}
-        </Form>
-    )
-}
-
-export default function Lab4() {
-    const { data: categories = [], isLoading: categoriesLoading } = useQuery({
-        queryKey: ['categories'],
-        queryFn: async () => {
-            const res = await axios.get('http://localhost:3000/categories');
-            return res.data as Category[];
-        }
-    })
-
-    const categoryOptions = useMemo(() => {
-        return (categories || []).map((c: Category) => ({ label: c.name, value: c.id }));
-    }, [categories]);
-
-    const { mutate, isPending, isSuccess } = useMutation({
-        mutationFn: async (values: Story) => {
-            await axios.post("http://localhost:3000/stories", values);
-        },
-        onSuccess: () => {
-            toast.success("Story created successfully!");
-        },
-        onError: () => {
-            toast.error("Failed to create story.");
-        },
-    })
-
-    const onFinish = (values: Story) => {
-        mutate(values)
-    }
-
-    return (
-        <div className="lab4-forms">
-            <div className="lab4-col">
-                <h3>Create Category</h3>
-                <CategoryForm />
-            </div>
-
-            <div className="lab4-col">
-                <h3>Create Story</h3>
-                <Form layout="vertical" onFinish={onFinish} style={{ maxWidth: '100%' }}>
-                    <Form.Item label="title" name="title" rules={[{ required: true, message: 'Please enter a title' }]}>
-                        <Input placeholder="title" />
-                    </Form.Item>
-                    <Form.Item label="Tác giả" name="author">
-                        <Input />
-                    </Form.Item>
-                    <Form.Item label="Image URL" name="image">
-                        <Input />
-                    </Form.Item>
-                    <Form.Item label="Mô tả" name="description">
-                        <Input.TextArea rows={4} />
-                    </Form.Item>
-                    <Form.Item label="Category" name="categoryId">
-                        <Select
-                            options={categoryOptions}
-                            loading={categoriesLoading}
-                            placeholder="Select a category"
-                        />
-                    </Form.Item>
-                    <Button htmlType="submit" loading={isPending}>Submit</Button>
-                    {isSuccess && (
-                        <div style={{ color: "green" }}>Story created successfully</div>
-                    )}
-                </Form>
-            </div>
-        </div>
-    )
-}
+export default AddStory;

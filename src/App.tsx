@@ -6,6 +6,7 @@ import { Avatar, Button, Switch } from "antd";
 import { useAuthStore } from "./stores/useAuthStore";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import EditStory from "./pages/Lab6";
 
 function App() {
   const user = useAuthStore((s) => s.user);
@@ -81,6 +82,7 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/edit/:id" element={<EditStory />} />
       </Routes>
 
       <Toaster />
